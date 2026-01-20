@@ -1,0 +1,404 @@
+.globalContainer {
+  display: flex;
+  justify-content: left;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3)),
+    url("/public/images/blockEstateCardOne.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  min-height: 100%;
+  padding: 60px 150px;
+  color: white;
+  position: relative;
+  margin-top: 0px;
+  /* height: 1750px; */
+  height: 100vh;
+  width: auto;
+  background-attachment: fixed;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  width: 100%;
+}
+.ContainerText {
+  align-items: start;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  font-family: "Montserrat Bold", "Roboto Bold", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: rgb(243, 237, 237);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.ContainerText h1 {
+  font-size: 90px;
+  font-weight: lighter;
+}
+.ContainerText span {
+  font-weight: 500;
+}
+.infoArea {
+  text-align: start;
+  font-size: 35px;
+  margin-top: 35px;
+  display: flex;
+  font-family: "Montserrat Bold", "Roboto Bold", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.infoArea img {
+  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+}
+.infoArea p {
+  line-height: 40px;
+  color: rgb(247 245 245 / 90%);
+  text-shadow: 1px 1px 2px rgb(6 6 6 / 70%);
+}
+.infoArea span {
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Добавьте эти стили в index.module.css в конец файла */
+
+/* Контейнер для галереи домов */
+.portfolioHouses {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1400px;
+  z-index: 10;
+}
+
+/* Горизонтальный скролл */
+.scrollContainer {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  scrollbar-width: none;
+  scrollbar-color: rgba(255, 255, 255, 0.7) transparent;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Стилизация скроллбара */
+.scrollContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Карточка с изображением */
+.imageCard {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 3px solid transparent;
+}
+
+.imageCard:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageCard:hover img {
+  transform: scale(1.1);
+}
+
+/* Затемнение и название на карточке */
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.imageOverlay span {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 1024px) {
+  .portfolioHouses {
+    width: 95%;
+    bottom: 30px;
+  }
+
+  .imageCard {
+    width: 160px;
+    height: 110px;
+  }
+
+  .scrollContainer {
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+/* Адаптация для мобилок */
+@media (max-width: 768px) {
+  .portfolioHouses {
+    width: 100%;
+    bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .scrollContainer {
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .imageCard {
+    width: 130px;
+    height: 90px;
+  }
+
+  .imageOverlay span {
+    font-size: 12px;
+  }
+}
+
+/* Адаптация для маленьких телефонов */
+@media (max-width: 480px) {
+  .portfolioHouses {
+    bottom: 15px;
+    padding: 0 5px;
+  }
+
+  .scrollContainer {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .imageCard {
+    width: 110px;
+    height: 80px;
+  }
+
+  .imageCard:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Для горизонтальной ориентации */
+@media (max-width: 768px) and (orientation: landscape) {
+  .portfolioHouses {
+    bottom: 15px;
+  }
+
+  .imageCard {
+    width: 140px;
+    height: 85px;
+  }
+}
+
+/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ (до 768px) ========== */
+@media (max-width: 768px) {
+  .globalContainer {
+    padding: 70px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .ContainerText {
+    text-align: left;
+    width: 100%;
+  }
+
+  .ContainerText h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .infoArea {
+    font-size: 18px;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .infoArea img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+
+  .infoArea p {
+    line-height: 1.4;
+    font-size: 16px;
+    align-items: center;
+  }
+}
+
+/* ========== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) ========== */
+@media (max-width: 480px) {
+  .globalContainer {
+    padding: 15px;
+    padding-top: 40px;
+  }
+
+  .ContainerText h1 {
+    font-size: 32px;
+  }
+
+  .infoArea {
+    font-size: 16px;
+  }
+
+  .infoArea p {
+    font-size: 14px;
+  }
+
+  .infoArea img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ========== ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ ========== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .globalContainer {
+    padding: 15px 25px;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .ContainerText h1 {
+    font-size: 36px;
+  }
+
+  .infoArea {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .infoArea p {
+    flex: 0 0 auto;
+    margin-right: 15px;
+  }
+}
+
+/* ========== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 360px) ========== */
+@media (max-width: 360px) {
+  .ContainerText h1 {
+    font-size: 28px;
+  }
+
+  .infoArea {
+    font-size: 14px;
+  }
+
+  .infoArea p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .infoArea img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ========== ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ ========== */
+/* Предотвращение горизонтального скролла */
+
+/* Улучшение контраста для мобилок */
+@media (max-width: 768px) {
+  .ContainerText h1,
+  .infoArea span {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgb(4 4 4 / 70%);
+  }
+
+  .infoArea p {
+    color: rgb(247 245 245 / 90%);
+    text-shadow: 1px 1px 2px rgb(6 6 6 / 70%);
+  }
+}
+
+/* Оптимизация фона для мобилок */
+@media (max-width: 768px) {
+  .globalContainer {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: 70% center;
+  }
+}
+
+/* Исправление для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .globalContainer {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Для темных фонов - улучшение читаемости */
+@media (max-width: 768px) {
+  .globalContainer {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1)
+      ),
+      linear-gradient(rgba(0, 0, 0, 0.3)),
+      url("/public/images/blockEstateCardOne.jpg");
+  }
+}
+
+/* Высотная оптимизация для очень высоких экранов */
+@media (min-height: 800px) and (max-width: 768px) {
+  .globalContainer {
+    justify-content: center;
+    padding-top: 80px;
+  }
+}

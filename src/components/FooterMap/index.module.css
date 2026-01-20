@@ -1,0 +1,318 @@
+.globalContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный */
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* height: 100vh; */
+  width: 100%;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.mapSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    padding: 40px 20px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 15px 15px;
+    font-size: 18px;
+    gap: 12px;
+  }
+}
+
+.mapSection h2 {
+  color: white;
+  margin: 0;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
+}
+
+.mapСontainer {
+  display: flex;
+  max-width: 100%;
+  border-radius: 15px;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    border-radius: 12px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 10px;
+  }
+}
+
+.mapContainer iframe {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Соотношение 16:9 для iframe */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.mapContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  border-radius: 10px;
+}
+
+.containerTelephone {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+}
+.contacts {
+  display: flex;
+  gap: 50px;
+}
+
+.containerTelephone a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+.containerTelephone a:hover {
+  opacity: 0.8;
+}
+
+.containerTelephone img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  color: white;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 480px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.containerContact {
+  text-align: center;
+  font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px 0px 20px;
+  gap: 20px;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    padding: 20px 20px 40px;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px 15px 30px;
+    font-size: 16px;
+    gap: 12px;
+  }
+}
+
+/* Добавьте заголовок для блока контактов */
+.containerContact h2 {
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 22px;
+  }
+}
+
+.containerInstogram {
+  display: flex;
+  align-items: center;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+.containerInstogram a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.2s ease;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    gap: 8px;
+  }
+}
+
+.containerInstogram a:hover {
+  opacity: 0.8;
+}
+
+.containerInstogram img {
+  margin-right: 10px;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 480px) {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+}
+
+/* Дополнительные мобильные оптимизации */
+@media (max-width: 768px) {
+  /* Уменьшаем общие отступы */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Улучшаем касания на мобильных */
+  a,
+  button {
+    min-height: 44px; /* Минимальный размер для удобного касания */
+    min-width: 44px;
+  }
+
+  /* Убираем горизонтальный скролл */
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Оптимизация для очень маленьких экранов */
+@media (max-width: 360px) {
+  .mapSection,
+  .containerContact {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .mapSection h2,
+  .containerContact h2 {
+    font-size: 20px;
+  }
+
+  .containerTelephone a,
+  .containerInstogram a {
+    font-size: 15px;
+  }
+}
+
+/* Для горизонтальной ориентации на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+  .globalContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .mapSection,
+  .containerContact {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+  }
+
+  .mapContainer {
+    padding-bottom: 40%; /* Меньшая высота для ландшафта */
+  }
+}
+
+/* Для iOS Safari - улучшение касаний */
+@supports (-webkit-touch-callout: none) {
+  .containerTelephone a,
+  .containerInstogram a {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+  }
+}
