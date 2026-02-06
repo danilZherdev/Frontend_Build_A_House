@@ -1,3 +1,4 @@
+/* ========== БАЗОВЫЕ СТИЛИ ========== */
 .globalContainer {
   display: flex;
   justify-content: left;
@@ -6,79 +7,79 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  object-fit: cover;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 60px 150px;
   color: white;
   position: relative;
-  margin-top: 0px;
-  height: 100vh;
-  width: auto;
+  margin: 0;
+  width: 100%;
   background-attachment: fixed;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  height: 100vh;
-  width: 100%;
+  box-sizing: border-box;
 }
+
 .ContainerText {
   align-items: start;
-  /* font-family: Arial, sans-serif; */
   text-align: left;
-  /* font-family:
-    "Montserrat Bold",
-    "Roboto Bold",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif; */
   color: rgb(243, 237, 237);
   font-weight: 400;
   letter-spacing: 0.02em;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .ContainerText h1 {
   margin-top: 50px;
   font-size: 70px;
   font-weight: 400;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
+
 .ContainerText p {
   font-size: 50px;
   font-weight: 300;
+  margin: 10px 0;
 }
+
 .ContainerText span {
   font-weight: 500;
 }
+
 .infoArea {
   text-align: start;
   font-size: 35px;
   margin-top: 35px;
   display: flex;
-  /* font-family:
-    "Montserrat Bold",
-    "Roboto Bold",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif; */
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
 }
+
 .infoArea img {
   margin-right: 10px;
   width: 80px;
   height: 80px;
+  flex-shrink: 0;
 }
+
 .infoArea p {
   line-height: 40px;
   color: rgb(247 245 245 / 90%);
   text-shadow: 1px 1px 2px rgb(6 6 6 / 70%);
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
+
 .infoArea span {
   color: white;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-/* Добавьте эти стили в index.module.css в конец файла */
-
-/* Контейнер для галереи домов */
+/* ========== ГАЛЕРЕЯ ДОМОВ ========== */
 .portfolioHouses {
   position: absolute;
   bottom: 40px;
@@ -87,9 +88,9 @@
   width: 90%;
   max-width: 1400px;
   z-index: 10;
+  box-sizing: border-box;
 }
 
-/* Горизонтальный скролл */
 .scrollContainer {
   display: flex;
   gap: 20px;
@@ -103,9 +104,9 @@
   backdrop-filter: blur(10px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
 }
 
-/* Стилизация скроллбара */
 .scrollContainer::-webkit-scrollbar {
   height: 8px;
 }
@@ -124,7 +125,6 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* Карточка с изображением */
 .imageCard {
   flex: 0 0 auto;
   width: 180px;
@@ -148,14 +148,12 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-  background-size: cover;
 }
 
 .imageCard:hover img {
   transform: scale(1.1);
 }
 
-/* Затемнение и название на карточке */
 .imageOverlay {
   position: absolute;
   bottom: 0;
@@ -173,14 +171,14 @@
 
 .imageOverlay span {
   color: white;
-  /* font-family: "Montserrat", sans-serif; */
   font-size: 14px;
   font-weight: 500;
   display: block;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
-/* Кнопки навигации */
+
+/* ========== НАВИГАЦИОННЫЕ КНОПКИ ========== */
 .navButton {
   position: absolute;
   top: 50%;
@@ -225,7 +223,7 @@
   right: 30px;
 }
 
-/* Информация о слайде */
+/* ========== ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ========== */
 .slideInfo {
   position: absolute;
   bottom: 40px;
@@ -243,7 +241,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Анимации плавного появления/исчезновения */
 .fadeOut {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -254,46 +251,36 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .navButton {
-    width: 40px;
-    height: 40px;
-  }
-
-  .navButton svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .prevButton {
-    left: 15px;
-  }
-
-  .nextButton {
-    right: 15px;
-  }
-
-  .slideInfo {
-    font-size: 14px;
-    padding: 6px 15px;
-    bottom: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navButton {
-    width: 36px;
-    height: 36px;
-  }
-
-  .navButton svg {
-    width: 18px;
-    height: 18px;
-  }
-}
-/* Адаптация для планшетов */
+/* ========== ТАБЛЕТЫ (1024px - 769px) ========== */
 @media (max-width: 1024px) {
+  .globalContainer {
+    padding: 50px 80px;
+    background-attachment: scroll;
+  }
+
+  .ContainerText h1 {
+    font-size: 60px;
+    margin-top: 40px;
+  }
+
+  .ContainerText p {
+    font-size: 42px;
+  }
+
+  .infoArea {
+    font-size: 28px;
+    margin-top: 30px;
+  }
+
+  .infoArea img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .infoArea p {
+    line-height: 35px;
+  }
+
   .portfolioHouses {
     width: 95%;
     bottom: 30px;
@@ -310,224 +297,360 @@
   }
 }
 
-/* Адаптация для мобилок */
+/* ========== ПЛАНШЕТЫ (768px - 481px) ========== */
 @media (max-width: 768px) {
+  .globalContainer {
+    padding: 40px 30px;
+    min-height: 100vh;
+    background-attachment: scroll;
+    background-position: 70% center;
+  }
+
+  .ContainerText h1 {
+    font-size: 45px;
+    margin-top: 30px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .ContainerText p {
+    font-size: 32px;
+  }
+
+  .infoArea {
+    font-size: 22px;
+    margin-top: 25px;
+    gap: 12px;
+  }
+
+  .infoArea img {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+  }
+
+  .infoArea p {
+    line-height: 28px;
+    font-size: 18px;
+  }
+
   .portfolioHouses {
     width: 100%;
-    bottom: 20px;
-    padding: 0 10px;
+    bottom: 25px;
+    padding: 0 15px;
   }
 
   .scrollContainer {
     gap: 12px;
     padding: 12px;
-    border-radius: 10px;
-  }
-
-  .imageCard {
-    width: 130px;
-    height: 90px;
-  }
-
-  .imageOverlay span {
-    font-size: 12px;
-  }
-}
-
-/* Адаптация для маленьких телефонов */
-@media (max-width: 480px) {
-  .portfolioHouses {
-    bottom: 15px;
-    padding: 0 5px;
-  }
-
-  .scrollContainer {
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .imageCard {
-    width: 110px;
-    height: 80px;
-  }
-
-  .imageCard:hover {
-    transform: translateY(-3px);
-  }
-}
-
-/* Для горизонтальной ориентации */
-@media (max-width: 768px) and (orientation: landscape) {
-  .portfolioHouses {
-    bottom: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
   }
 
   .imageCard {
     width: 140px;
-    height: 85px;
+    height: 95px;
+  }
+
+  .imageOverlay span {
+    font-size: 13px;
+  }
+
+  .navButton {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navButton svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .prevButton {
+    left: 20px;
+  }
+
+  .nextButton {
+    right: 20px;
+  }
+
+  .slideInfo {
+    font-size: 15px;
+    padding: 6px 16px;
+    bottom: 30px;
   }
 }
 
-/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ (до 768px) ========== */
-@media (max-width: 768px) {
+/* ========== ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ ПЛАНШЕТОВ ========== */
+@media (max-width: 1024px) and (orientation: landscape) {
   .globalContainer {
-    padding: 70px;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .ContainerText {
-    text-align: left;
-    width: 100%;
+    padding: 100px 50px;
   }
 
   .ContainerText h1 {
-    margin-top: 80px;
-    font-size: 55px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-  }
-
-  .infoArea {
-    font-size: 18px;
+    font-size: 50px;
     margin-top: 20px;
-    gap: 10px;
-  }
-
-  .infoArea img {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-  }
-
-  .infoArea p {
-    line-height: 1.4;
-    font-size: 16px;
-    align-items: center;
-  }
-}
-
-/* ========== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) ========== */
-@media (max-width: 480px) {
-  .globalContainer {
-    padding: 15px;
-    padding-top: 40px;
-  }
-
-  .ContainerText h1 {
-    font-size: 25px;
-  }
-   .ContainerText p {
-    font-size: 20px;
-  }
-
-
-  .infoArea {
-    font-size: 16px;
-  }
-
-  .infoArea p {
-    font-size: 14px;
-  }
-
-  .infoArea img {
-    width: 35px;
-    height: 35px;
-  }
-}
-
-/* ========== ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ ========== */
-@media (max-width: 768px) and (orientation: landscape) {
-  .globalContainer {
-    padding: 15px 25px;
-    min-height: 100vh;
-    height: auto;
-  }
-
-  .ContainerText h1 {
-    font-size: 36px;
   }
 
   .infoArea {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
+    margin-top: 20px;
   }
 
   .infoArea p {
-    flex: 0 0 auto;
-    margin-right: 15px;
+    margin-right: 20px;
+  }
+
+  .portfolioHouses {
+    bottom: 20px;
+  }
+
+  .imageCard {
+    width: 150px;
+    height: 90px;
   }
 }
 
-/* ========== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 360px) ========== */
-@media (max-width: 360px) {
+/* ========== МОБИЛЬНЫЕ (480px - 376px) ========== */
+@media (max-width: 480px) {
+  .globalContainer {
+    padding: 30px 20px;
+    padding-top: 40px;
+    justify-content: center;
+  }
+
+  .ContainerText {
+    text-align: center;
+  }
+
+  .ContainerText h1 {
+    font-size: 36px;
+    margin-top: 20px;
+    line-height: 1.3;
+  }
+
+  .ContainerText p {
+    font-size: 26px;
+  }
+
+  .infoArea {
+    font-size: 18px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .infoArea p {
+    font-size: 16px;
+    line-height: 24px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .infoArea img {
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+  }
+
+  .portfolioHouses {
+    bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .scrollContainer {
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .imageCard {
+    width: 120px;
+    height: 80px;
+  }
+
+  .imageCard:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  .imageOverlay span {
+    font-size: 12px;
+    padding: 8px 5px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    display: none; /* Скрываем на маленьких экранах */
+  }
+
+  .slideInfo {
+    font-size: 14px;
+    padding: 5px 12px;
+    bottom: 25px;
+  }
+}
+
+/* ========== МАЛЕНЬКИЕ МОБИЛЬНЫЕ (375px - 321px) ========== */
+@media (max-width: 375px) {
+  .globalContainer {
+    padding: 25px 15px;
+    padding-top: 35px;
+  }
+
+  .ContainerText h1 {
+    font-size: 32px;
+  }
+
+  .ContainerText p {
+    font-size: 22px;
+  }
+
+  .infoArea {
+    font-size: 16px;
+  }
+
+  .infoArea p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .infoArea img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .portfolioHouses {
+    bottom: 15px;
+  }
+
+  .imageCard {
+    width: 110px;
+    height: 75px;
+  }
+
+  .scrollContainer {
+    gap: 8px;
+    padding: 8px;
+  }
+}
+
+/* ========== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 320px) ========== */
+@media (max-width: 320px) {
+  .globalContainer {
+    padding: 20px 10px;
+    padding-top: 30px;
+  }
+
   .ContainerText h1 {
     font-size: 28px;
+    margin-top: 15px;
+  }
+
+  .ContainerText p {
+    font-size: 20px;
   }
 
   .infoArea {
     font-size: 14px;
+    gap: 8px;
   }
 
   .infoArea p {
-    font-size: 13px;
-    line-height: 1.3;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .infoArea img {
     width: 30px;
     height: 30px;
+    margin-right: 5px;
+  }
+
+  .imageCard {
+    width: 100px;
+    height: 70px;
+  }
+
+  .scrollContainer {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .slideInfo {
+    font-size: 12px;
+    padding: 4px 10px;
+    bottom: 20px;
   }
 }
 
-/* ========== ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ ========== */
-/* Предотвращение горизонтального скролла */
-
-/* Улучшение контраста для мобилок */
-@media (max-width: 768px) {
-  .ContainerText h1,
-  .infoArea span {
-    color: #fff;
-    text-shadow: 1px 1px 2px rgb(4 4 4 / 70%);
-  }
-
-  .infoArea p {
-    color: rgb(247 245 245 / 90%);
-    text-shadow: 1px 1px 2px rgb(6 6 6 / 70%);
-  }
-}
-
-/* Оптимизация фона для мобилок */
-@media (max-width: 768px) {
+/* ========== ВЫСОКИЕ ЭКРАНЫ (min-height) ========== */
+@media (min-height: 800px) and (max-width: 768px) {
   .globalContainer {
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: 70% center;
+    padding-top: 100px;
+    justify-content: flex-start;
+  }
+
+  .ContainerText h1 {
+    margin-top: 60px;
   }
 }
 
-/* Исправление для iOS Safari */
+@media (min-height: 1000px) {
+  .globalContainer {
+    min-height: 100vh;
+  }
+
+  .portfolioHouses {
+    bottom: 60px;
+  }
+}
+
+/* ========== ДЛЯ iOS SAFARI ========== */
 @supports (-webkit-touch-callout: none) {
   .globalContainer {
     min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
   }
 }
 
-/* Для темных фонов - улучшение читаемости */
+/* ========== ПРЕДОТВРАЩЕНИЕ ГОРИЗОНТАЛЬНОГО СКРОЛЛА ========== */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ========== УЛУЧШЕНИЕ КОНТРАСТА ДЛЯ МОБИЛОК ========== */
 @media (max-width: 768px) {
   .globalContainer {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)),
-      linear-gradient(rgba(0, 0, 0, 0.3)),
-      url("/public/images/block-estate-card.jpg");
+      linear-gradient(rgba(0, 0, 0, 0.5)),
+      url(/public/images/discoint-banner.jpg);
+  }
+
+  .ContainerText h1,
+  .ContainerText span {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .infoArea p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
   }
 }
 
-/* Высотная оптимизация для очень высоких экранов */
-@media (min-height: 800px) and (max-width: 768px) {
+/* ========== ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ ========== */
+@media (max-width: 768px) {
+  .imageCard,
+  .scrollContainer {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+}
+
+/* ========== ДЛЯ ТЕМНОЙ ТЕМЫ ========== */
+@media (prefers-color-scheme: dark) {
   .globalContainer {
-    justify-content: center;
-    padding-top: 80px;
+    background-blend-mode: overlay;
   }
 }
