@@ -3,77 +3,65 @@ import styles from "./index.module.css";
 
 const ConstructionHero = () => {
   const [activeModal, setActiveModal] = useState(null);
+  const [showDesignGallery, setShowDesignGallery] = useState(false);
 
   const openModal = (modalName) => setActiveModal(modalName);
-  const closeModal = () => setActiveModal(null);
+  const closeModal = () => {
+    setActiveModal(null);
+  };
 
-  const modalContent = {
-    materials: {
-      title: "Экологические материалы",
-      content: [
-        {
-          title: "Древесина FSC",
-          description:
-            "Сертифицированная древесина из ответственных источников",
-          icon: "🌳",
-        },
-        {
-          title: "Натуральные утеплители",
-          description: "Эковата, минеральная вата, пробковые плиты",
-          icon: "🧱",
-        },
-        {
-          title: "Безопасные краски",
-          description: "Краски без летучих органических соединений (ЛОС)",
-          icon: "🎨",
-        },
-        {
-          title: "Переработанные материалы",
-          description: "Используем вторичное сырье где это возможно",
-          icon: "♻️",
-        },
-      ],
+  const leaveRequest = () => {
+    closeModal();
+    document.getElementById("ProjectStatus").scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const modalOnClickContent = {
+    //дизайн
+    design: {
+      title: "Дизайн",
+      leftSubtitle: `Проектирование \n
+                     интерьера \n
+                     по индивидуальным \n
+                     пожеланиям `,
+      rightSubtitle: `— Планировка\n
+                      — Проработка стилистики\n
+                      — 3D визуализация проекта\n
+                      — Полный комплект рабочих чертежей\n
+                      — Разработка инженерных проектов\n
+                      — Ведомости\n
+                       `,
+      leftImage: "/images/imagesDrawing/picture-design-Second.jpg",
+      rightImage: "images/imagesDrawing/picture-design.jpg",
     },
-    projects: {
-      title: "Сложные проекты",
-      content: [
-        {
-          title: "Индивидуальное проектирование",
-          description: "Создаем уникальные проекты под ваши потребности",
-          icon: "📐",
-        },
-        {
-          title: "Сложный рельеф",
-          description: "Строим на участках с любым уклоном и особенностями",
-          icon: "⛰️",
-        },
-        {
-          title: "Нестандартные решения",
-          description:
-            "Реализуем архитектурные и инженерные задачи любой сложности",
-          icon: "💡",
-        },
-      ],
+    //строительство
+    buildings: {
+      title: "Строительство",
+      leftSubtitle: `Разработка полностью,\n
+                     под ключ от А до Я `,
+      rightSubtitle: `— Дизайн и проектирование\n
+                      — Инженерное проектирование\n
+                      — Строительство и отделка\n
+                      — Ввод в эксплуатацию\n
+                      — Комплектация\n
+                      — Обслуживание объектов`,
+      leftImage: "/images/imagesDrawing/construction image one.jpg",
+      rightImage: "/images/imagesDrawing/construction image Second.jpg",
     },
-    communications: {
-      title: "Коммуникации",
-      content: [
-        {
-          title: "Автономные системы",
-          description: "Солнечные панели, септики, скважины",
-          icon: "⚡",
-        },
-        {
-          title: "Умный дом",
-          description: "Интеграция современных систем управления",
-          icon: "🏠",
-        },
-        {
-          title: "Энергоэффективность",
-          description: "Системы рекуперации и энергосбережения",
-          icon: "🔋",
-        },
-      ],
+    //ремонт
+    repair: {
+      title: "Ремонт",
+      leftSubtitle: `Строительство,\n
+                     отделочные работы \n
+                     и тех надзор`,
+      rightSubtitle: `— Организация всех работ по проекту\n
+                      — Соблюдение графика работ и сроков\n
+                      — Гарантия на строительные работы\n
+                      — Фиксированная сметная стоимость\n
+                      — Своя команда инженеров и строителей`,
+      leftImage: "/images/imagesDrawing/repair-one.jpg",
+      rightImage: "/images/imagesDrawing/repair-second.jpg",
     },
   };
 
@@ -82,76 +70,49 @@ const ConstructionHero = () => {
       <div className={styles.global}>
         <div className={styles.blockText}>
           <h1>
-            построим дом
+            Cтроим дома
             <br />
-            <span>вашей мечты!</span>
+            на курорте
           </h1>
           <div className={styles.blockInfo}>
             <div
               className={styles.blockAco}
-              onClick={() => openModal("materials")}
+              onClick={() => openModal("design")}
               style={{ cursor: "pointer" }}
             >
-              <img
-                color={"white"}
-                width={"40px"}
-                height={"40px"}
-                src="/images/iconBook.png"
-                alt="Иконка книги"
-              />
-              <p>
-                экологические <br />
-                материалы
-              </p>
+              <p>Дизайн</p>
             </div>
 
             <div
               className={styles.blockProjects}
-              onClick={() => openModal("projects")}
+              onClick={() => openModal("buildings")}
               style={{ cursor: "pointer" }}
             >
-              <img
-                color={"white"}
-                width={"40px"}
-                height={"40px"}
-                src="/images/iconHouse.png"
-                alt="Иконка дома"
-              />
-              <p>
-                реализуем самые <br />
-                сложные проекты
-              </p>
+              <p>Строительство</p>
             </div>
 
             <div
               className={styles.blockComunications}
-              onClick={() => openModal("communications")}
+              onClick={() => openModal("repair")}
               style={{ cursor: "pointer" }}
             >
-              <img
-                color={"white"}
-                width={"40px"}
-                height={"40px"}
-                src="/images/iconsCommunications.png"
-                alt="Иконка лампочки"
-              />
-              <p>
-                установка <br />
-                коммуникаций
-              </p>
+              <p>Ремонт</p>
             </div>
           </div>
         </div>
-        <a
-          href="https://www.instagram.com/doma_top_essentuki?igsh=MWw4bWNjbnV5YjE2Nw%3D%3D&utm_source=qr"
+        <button
+          onClick={() => {
+            document.getElementById("footer").scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
           className={styles.directLink}
         >
           Пишите в Direct!
-        </a>
+        </button>
       </div>
 
-      {/* Общее модальное окно */}
-      {activeModal && modalContent[activeModal] && (
+      {activeModal && modalOnClickContent[activeModal] && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div
             className={styles.modalContent}
@@ -160,20 +121,31 @@ const ConstructionHero = () => {
             <button className={styles.modalClose} onClick={closeModal}>
               ×
             </button>
-            <h2>{modalContent[activeModal].title}</h2>
-
-            <div className={styles.featuresGrid}>
-              {modalContent[activeModal].content.map((item, index) => (
-                <div key={index} className={styles.featureItem}>
-                  <div className={styles.featureIcon}>{item.icon}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              ))}
+            <h2>{modalOnClickContent[activeModal].title}</h2>
+            <div className={styles.modalDescription}>
+              <p className={styles.paragrafOne}>
+                {modalOnClickContent[activeModal].leftSubtitle}
+              </p>
+              <p className={styles.paragrafSecond}>
+                {modalOnClickContent[activeModal].rightSubtitle}
+              </p>
             </div>
-
-            <button className={styles.modalButton} onClick={closeModal}>
-              Закрыть
+            <div className={styles.modalImages}>
+              <img
+                alt="Дизайн гостевой комнаты "
+                width={"40%"}
+                height={"100%"}
+                src={modalOnClickContent[activeModal].leftImage}
+              />
+              <img
+                alt="Дизайн спальной комнаты "
+                width={"40%"}
+                height={"100%"}
+                src={modalOnClickContent[activeModal].rightImage}
+              />
+            </div>
+            <button className={styles.modalButton} onClick={leaveRequest}>
+              Оставить заявку
             </button>
           </div>
         </div>

@@ -3,8 +3,9 @@
   justify-content: space-around;
   align-items: center;
   padding: 60px 100px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    url(/public/images/ProjectStatus.jpg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url(/public/images/project-status.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,7 +26,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif;
+  /* font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif; */
   font-weight: bold;
   gap: 40px;
   max-width: 700px;
@@ -38,6 +39,16 @@
   color: white;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.ContaynerText h2 {
+  padding: 10px;
+  font-size: 35px;
+  color: white;
+  /* width: fit-content;
+  background-color: rgba(255, 255, 255, 0.792); */
+  /* border-radius: 10px; */
+  /* color: #000000; */
+  font-weight: 400;
 }
 
 .ContaynerText p {
@@ -54,14 +65,16 @@
 
 .ContaynerText span {
   padding: 8px 16px;
-  color: rgba(13, 13, 159, 0.746);
-  background-color: white;
+  color: rgba(0, 0, 0, 0.746);
+  background-color: rgba(255, 255, 255, 0.754);
   border-radius: 6px;
   display: inline-block;
   margin: 4px 0;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* .ContaynerText span:hover {
@@ -73,7 +86,7 @@
   display: inline-block;
   text-align: center;
   font-weight: 600;
-  font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif;
+  /* font-family: "Inter", "Roboto", "Open Sans", "Segoe UI", sans-serif; */
   color: white;
   font-size: clamp(1rem, 2vw, 30px);
   /* background-color: rgba(13, 13, 159, 0.85); */
@@ -98,6 +111,7 @@
 /* Существующие стили остаются */
 
 .contactForm {
+  position: relative;
   background: white;
   padding: 24px;
   border-radius: 12px;
@@ -106,6 +120,33 @@
   width: 100%;
   max-width: 500px;
 }
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #f5c6cb;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Добавьте остальные ваши стили */
 
 .contactForm h3 {
   margin-top: 0;
@@ -135,7 +176,7 @@
   border-radius: 6px;
   font-size: 14px;
   transition: border-color 0.3s;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .formGroup input:focus,
@@ -146,7 +187,7 @@
 }
 
 .formGroup textarea {
-  resize: vertical;
+  resize: none;
   min-height: 80px;
 }
 
@@ -191,24 +232,53 @@
 }
 
 .showFormBtn {
-  background-color: rgba(69, 69, 165, 0.644); /* 0.5 = 50% прозрачности */
+  background-color: rgba(0, 0, 0, 0.644);
   color: white;
-  border: 2px solid;
-  border-color: rgba(4, 40, 106, 0.714);
+  border: 2px solid rgba(0, 0, 0, 0.714);
   padding: 16px 32px;
-  border-radius: 10px;
+  border-radius: 25px;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.4s ease;
   text-decoration: none;
   display: inline-block;
   margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
+
+/* Псевдоэлемент для эффекта заливки */
+.showFormBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    /* Золотой с прозрачностью */ transparent
+  );
+  transition: left 0.7s ease;
+  z-index: -1;
+  border-radius: 23px;
+}
+
 .showFormBtn:hover {
-  transform: translateY(-5px);
-  /* transform: scale(1.05); /* Увеличить на 5% */
+  background-color: rgba(255, 255, 255, 0.9); /* Золотой фон */
+  color: #000; /* Черный текст для контраста */
+  border-color: #ffffff; /* Золотая граница */
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.showFormBtn:hover::before {
+  left: 100%;
 }
 
 /* ========== ТАБЛЕТЫ (768px - 1024px) ========== */
@@ -218,7 +288,15 @@
     gap: 30px;
     background-attachment: scroll;
   }
+  .contactForm {
+    padding: 24px;
+    max-width: 450px;
+  }
 
+  .formGroup input,
+  .formGroup textarea {
+    padding: 14px 16px;
+  }
   .ContaynerText {
     width: 60%;
     gap: 30px;
@@ -259,6 +337,41 @@
     margin-right: auto;
     padding: 14px 28px;
   }
+  .contactForm {
+    position: absolute;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .formButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 17px;
+  }
+
+  .showFormBtn {
+    max-width: 100%;
+    min-height: 54px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 14px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  .formGroup textarea {
+    min-height: 120px;
+  }
 }
 
 /* ========== СРЕДНИЕ ТЕЛЕФОНЫ (400px - 576px) ========== */
@@ -289,6 +402,57 @@
   .globalContainer a {
     padding: 12px 24px;
     font-size: 1rem;
+  }
+  .contactForm {
+    padding: 18px 16px;
+    margin: 16px auto;
+    max-width: 95%;
+    width: 95%;
+  }
+
+  .contactForm h3 {
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+
+  .formGroup {
+    margin-bottom: 14px;
+  }
+
+  .formGroup label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px 14px;
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .formGroup textarea {
+    min-height: 100px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 14px 20px;
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .showFormBtn {
+    padding: 14px 20px;
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .successMessage,
+  .errorMessage {
+    padding: 10px;
+    font-size: 13px;
+    margin-bottom: 16px;
   }
 }
 
@@ -323,6 +487,63 @@
     width: 100%;
     max-width: 280px;
   }
+  .contactForm {
+    padding: 16px 14px;
+    margin: 12px auto;
+    border-radius: 10px;
+  }
+
+  .contactForm h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .formGroup {
+    margin-bottom: 12px;
+  }
+
+  .formGroup label {
+    font-size: 13px;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 10px 12px;
+    min-height: 44px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+
+  .formGroup textarea {
+    min-height: 90px;
+  }
+
+  .formButtons {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    padding: 12px 16px;
+    min-height: 44px;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+
+  .showFormBtn {
+    padding: 12px 16px;
+    min-height: 44px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .successMessage,
+  .errorMessage {
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
 }
 
 /* ========== ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ ТЕЛЕФОНОВ ========== */
@@ -352,6 +573,33 @@
     font-size: 1rem;
     padding: 12px 24px;
     margin-top: 10px;
+  }
+  .contactForm {
+    max-width: 80%;
+    padding: 20px;
+    margin: 10px auto;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 10px 12px;
+    min-height: 42px;
+  }
+
+  .formGroup textarea {
+    min-height: 80px;
+  }
+
+  .formButtons {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .submitBtn,
+  .cancelBtn {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 15px;
   }
 }
 
@@ -389,7 +637,24 @@
     align-items: center;
   }
 }
+@media (pointer: coarse) {
+  .submitBtn,
+  .cancelBtn,
+  .showFormBtn {
+    min-height: 44px;
+  }
 
+  .formGroup input,
+  .formGroup textarea {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Увеличиваем область клика */
+  .formGroup label {
+    padding: 2px 0;
+  }
+}
 /* ========== СИСТЕМНЫЕ ОПТИМИЗАЦИИ ========== */
 /* Улучшение производительности на мобильных */
 @media (max-width: 768px) {
@@ -406,6 +671,19 @@
     min-height: -webkit-fill-available;
     background-attachment: scroll;
   }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.contactForm {
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Плавная анимация смены разрешений */

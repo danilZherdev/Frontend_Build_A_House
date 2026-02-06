@@ -1,16 +1,18 @@
 .globalContainer {
+  gap: 70px;
+  padding: 10%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    /* Градиент затемнения */ url(/public/images/KeyFeaturesOne.jpg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.498), rgba(0, 0, 0, 0.4)),
+    /* Градиент затемнения */ url(/public/images/gallery/galleryImagesOne.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #f9f1f1;
   height: 100vh;
-  gap: 40px;
   z-index: 2;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -18,275 +20,246 @@
   width: 100%;
 
   background-attachment: fixed;
-  width: auto;
   color: white;
-  margin-top: 0px;
-  padding-top: 2%;
 }
-
-.globalContainer h4 {
+.conteinerTitle {
+  display: flex;
+  flex-direction: column;
+}
+.conteinerTitle h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
+.conteinerTitle p {
   font-size: 30px;
-  font-weight: 300;
-  color: #ffffff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.ContainerTitle h1 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 200px;
   font-weight: 500;
-  line-height: 0.5;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-.ContainerTitle p {
-  text-align: end;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 2;
-  text-transform: uppercase;
-  color: rgb(175, 227, 78);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.conteinerPeculiarities {
+  text-align: left;
+  line-height: 1.5;
 }
-.benefitsContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Две равные колонки */
-  grid-template-rows: 1fr; /* Две строки */
-  gap: 40px;
-}
-
-.Advantage {
-  display: flex;
-  text-align: start;
-}
-.Advantage img {
-  margin: 10px;
-  width: 30px;
-  height: 30px;
-}
-.Advantage p {
-  font-size: 40px;
-  font-weight: 500;
-  color: rgb(249, 250, 249);
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
-}
-.projectsReady {
-  display: flex;
-  position: absolute;
-  left: 27%;
-  bottom: 3%;
-}
-.projectsReady h1 {
-  font-size: 150px;
-  font-weight: 600;
-}
-.projectsReady p {
-  font-size: 40px;
+.conteinerPeculiarities p {
+  font-size: 25px;
   font-weight: 400;
-  line-height: 1em;
-  align-content: center;
 }
-/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ (до 768px) ========== */
+.containerConsultation p {
+  font-size: 20px;
+  font-weight: 600;
+}
+/* .ConsultationButton {
+  background: linear-gradient(
+    135deg,
+    rgba(243, 243, 243, 0.9),
+    rgba(165, 172, 185, 0.9)
+  );
+  color: rgb(0, 0, 0);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: all 0.3s;
+}
+
+.ConsultationButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  background: linear-gradient(135deg, rgb(255, 255, 255), rgb(152, 157, 166));
+} */
+.ConsultationButton {
+  background-color: rgba(0, 0, 0, 0.644);
+  color: white;
+  border: 2px solid rgba(0, 0, 0, 0.714);
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ConsultationButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 253, 0.8),
+    transparent
+  );
+  transition: left 0.7s ease;
+  z-index: -1;
+  border-radius: 23px;
+}
+
+.ConsultationButton:hover {
+  background-color: rgba(249, 245, 245, 0.9);
+  color: #000000;
+  border-color: #000000;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(23, 23, 22, 0.3);
+}
+
+.ConsultationButton:hover::before {
+  left: 100%;
+}
+/* ========== ПЛАНШЕТЫ (768px - 1024px) ========== */
+@media (max-width: 1024px) {
+  .globalContainer {
+    justify-content: center;
+    gap: 50px;
+    padding: 8%;
+    background-attachment: scroll; /* Убираем fixed для планшетов */
+  }
+
+  .conteinerTitle h1 {
+    font-size: 40px;
+  }
+
+  .conteinerTitle p {
+    font-size: 24px;
+  }
+
+  .conteinerPeculiarities p {
+    font-size: 20px;
+  }
+
+  .containerConsultation p {
+    font-size: 18px;
+  }
+
+  .ConsultationButton {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+}
+
+/* ========== БОЛЬШИЕ ТЕЛЕФОНЫ (576px - 768px) ========== */
 @media (max-width: 768px) {
   .globalContainer {
+    gap: 40px;
+    padding: 6%;
     height: auto;
     min-height: 100vh;
-    padding: 20px 15px;
-    padding-top: 10%;
-    gap: 20px;
+    background-attachment: scroll;
   }
 
-  .globalContainer h4 {
+  .conteinerTitle h1 {
+    font-size: 32px;
+  }
+
+  .conteinerTitle p {
     font-size: 20px;
-    text-align: center;
-    margin: 10px 0;
   }
 
-  .ContainerTitle h1 {
-    font-size: 70px;
-    line-height: 0.8;
-    text-align: center;
-  }
-
-  .ContainerTitle p {
-    font-size: 14px;
-    line-height: 1.2;
-    text-align: end;
-    margin-top: 10px;
-  }
-
-  .benefitsContainer {
-    gap: 15px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .Advantage {
-    align-items: flex-start;
-    padding: 10px 0;
-  }
-
-  .Advantage img {
-    width: 24px;
-    height: 24px;
-    margin: 0 10px 0 0;
-    flex-shrink: 0;
-  }
-
-  .Advantage p {
+  .conteinerPeculiarities p {
     font-size: 18px;
-    line-height: 1.3;
-    margin: 0;
   }
 
-  .projectsReady {
-    gap: 10px;
-    position: relative;
-    text-align: left;
-    left: -15%;
+  .containerConsultation p {
+    font-size: 16px;
   }
 
-  .projectsReady h1 {
-    font-size: 60px;
-    line-height: 1;
-    margin: 0;
-  }
-
-  .projectsReady p {
-    font-size: 18px;
-    line-height: 1.2;
-    margin-top: 5px;
+  .ConsultationButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin-top: 15px;
   }
 }
 
-/* ========== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 480px) ========== */
-@media (max-width: 480px) {
+/* ========== СРЕДНИЕ ТЕЛЕФОНЫ (400px - 576px) ========== */
+@media (max-width: 576px) {
   .globalContainer {
-    padding: 15px 10px;
-    padding-top: 15%;
-    gap: 15px;
+    gap: 30px;
+    padding: 5%;
   }
 
-  .ContainerTitle h1 {
-    font-size: 50px;
+  .conteinerTitle h1 {
+    font-size: 28px;
   }
 
-  .ContainerTitle p {
+  .conteinerTitle p {
+    font-size: 18px;
+  }
+
+  .conteinerPeculiarities p {
+    font-size: 16px;
+  }
+
+  .containerConsultation p {
+    font-size: 15px;
+  }
+
+  .ConsultationButton {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* ========== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 400px) ========== */
+@media (max-width: 400px) {
+  .globalContainer {
+    justify-content: center;
+    gap: 25px;
+    padding: 4%;
+  }
+
+  .conteinerTitle h1 {
+    font-size: 14px;
+  }
+
+  .conteinerTitle p {
     font-size: 10px;
   }
 
-  .globalContainer h4 {
-    font-size: 18px;
+  .conteinerPeculiarities p {
+    font-size: 10px;
   }
 
-  .Advantage p {
-    font-size: 16px;
+  .containerConsultation p {
+    font-size: 11px;
   }
 
-  .Advantage img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .projectsReady h1 {
-    font-size: 50px;
-  }
-
-  .projectsReady p {
-    font-size: 16px;
+  .ConsultationButton {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 10px;
   }
 }
 
 /* ========== ГОРИЗОНТАЛЬНАЯ ОРИЕНТАЦИЯ ========== */
 @media (max-width: 768px) and (orientation: landscape) {
   .globalContainer {
-    height: auto;
-    min-height: 100vh;
-    padding-top: 5%;
-    gap: 15px;
+    gap: 30px;
+    padding: 4%;
+    height: 100vh;
   }
 
-  .ContainerTitle h1 {
-    font-size: 60px;
+  .conteinerTitle h1 {
+    font-size: 28px;
   }
 
-  .ContainerTitle p {
-    font-size: 20px;
+  .conteinerTitle p {
+    font-size: 18px;
   }
 
-  .benefitsContainer {
-    grid-template-columns: 1fr 1fr; /* Две колонки в альбомной */
-    gap: 15px;
-    max-width: 600px;
-  }
-
-  .Advantage p {
+  .conteinerPeculiarities p {
     font-size: 16px;
-  }
-
-  .projectsReady {
-    margin-top: 20px;
-  }
-}
-
-/* ========== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 360px) ========== */
-@media (max-width: 360px) {
-  .ContainerTitle h1 {
-    font-size: 40px;
-  }
-
-  .ContainerTitle p {
-    font-size: 16px;
-  }
-
-  .benefitsContainer {
-    gap: 10px;
-  }
-
-  .Advantage p {
-    font-size: 14px;
-  }
-
-  .Advantage img {
-    width: 18px;
-    height: 18px;
-  }
-
-  .projectsReady h1 {
-    font-size: 40px;
-  }
-
-  .projectsReady p {
-    font-size: 14px;
-  }
-}
-
-/* Улучшение читаемости на светлом фоне */
-@media (max-width: 768px) {
-  .Advantage p {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  }
-}
-
-/* Оптимизация фона для мобилок */
-@media (max-width: 768px) {
-  .globalContainer {
-    background-attachment: scroll;
-    background-position: center center;
-  }
-}
-
-/* Для очень высоких мобильных экранов */
-@media (min-height: 800px) and (max-width: 768px) {
-  .globalContainer {
-    /* justify-content: space-around; */
-  }
-}
-
-/* Исправление для iOS Safari */
-@supports (-webkit-touch-callout: none) {
-  .globalContainer {
-    min-height: -webkit-fill-available;
   }
 }

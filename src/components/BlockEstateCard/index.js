@@ -1,96 +1,123 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./index.module.css";
+import { getHouseImages } from "../../utils/designGalleryConfig";
 
 const BlockEstateCard = () => {
-  // Начальный фон
-  const [backgroundImage, setBackgroundImage] = useState(
-    "url('/images/blockEstateCardOne.jpg')"
-  );
+  const houseImages = getHouseImages();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
 
-  // Массив картинок для скролла
-  const houseImages = [
-    {
-      id: 1,
-      src: "/images/gallery/galleryImagesOne.jpg",
-      title: "Дом 1",
-    },
-    {
-      id: 2,
-      src: "/images/gallery/galleryImagesSecond.jpg",
-      title: "Дом 2",
-    },
-    {
-      id: 3,
-      src: "/images/gallery/galleryImagesThird.jpg",
-      title: "Дом 3",
-    },
-    {
-      id: 4,
-      src: "/images/gallery/galleryImagesFourth.jpg",
-      title: "Дом 4",
-    },
-    {
-      id: 5,
-      src: "/images/gallery/galleryImagesFifth.jpg",
-      title: "Дом 5",
-    },
-    {
-      id: 6,
-      src: "/images/gallery/galleryImagesSixth.jpg",
-      title: "Дом 6",
-    },
-    {
-      id: 7,
-      src: "/images/gallery/galleryImagesSeventh.jpg",
-      title: "Дом 7",
-    },
-    {
-      id: 8,
-      src: "/images/gallery/galleryImagesEighth.jpg",
-      title: "Дом 8",
-    },
-  ];
+  // Автоматическое слайд-шоу
+  useEffect(() => {
+    if (houseImages.length <= 1) return;
 
-  // Функция для смены фона
-  const changeBackground = (imageSrc) => {
-    setBackgroundImage(
-      `linear-gradient(rgba(0, 0, 0, 0.3)), url('${imageSrc}')`
-    );
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, houseImages.length]);
+
+  const currentImage = houseImages[currentIndex] || {};
+
+  const nextSlide = () => {
+    setFade(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) =>
+        prev === houseImages.length - 1 ? 0 : prev + 1,
+      );
+      setFade(true);
+    }, 300);
+  };
+
+  const prevSlide = () => {
+    setFade(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) =>
+        prev === 0 ? houseImages.length - 1 : prev - 1,
+      );
+      setFade(true);
+    }, 300);
   };
 
   return (
-    <div className={styles.globalContainer} style={{ backgroundImage }}>
+    <div
+      className={`${styles.globalContainer} ${fade ? styles.fadeIn : styles.fadeOut}`}
+      style={{
+        backgroundImage:
+          houseImages.length > 0
+            ? `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${currentImage.src}')`
+            : "url('/images/block-estate-card.jpg')",
+      }}
+    >
       <div className={styles.ContainerText}>
         <h1>
-          Каменый дом <br />
-          <span>в Ессентуках</span>
+          СОБСТВЕННАЯ <br />
+          СТУДИЯ ДИЗАЙНА
+          <br />
+          <span>____________</span>
+          <p>
+            Создайте дом с уникальным
+            <br />
+            интерьером
+          </p>
         </h1>
-        <div className={styles.infoArea}>
-          <img alt="иконка квадратный метр" src="/images/iconSquareMeter.png" />
+        {/* <div className={styles.infoArea}>
+          <img
+            alt="иконка квадратный метр"
+            src="/images/icon-square-meter.png"
+          />
           <p>
             60 м2 в предчистовой отделке <br />
             <span>от 2,6 млн.руб.</span>
           </p>
-        </div>
+        </div> */}
       </div>
 
-      {/* Горизонтальный скролл с картинками */}
-      <div className={styles.portfolioHouses}>
-        <div className={styles.scrollContainer}>
-          {houseImages.map((house) => (
-            <div
-              key={house.id}
-              className={styles.imageCard}
-              onClick={() => changeBackground(house.src)}
-            >
-              <img src={house.src} alt={house.title} loading="lazy" />
-              <div className={styles.imageOverlay}>
-                <span>{house.title}</span>
-              </div>
-            </div>
-          ))}
+      {/* Кнопки навигации слева и справа */}
+      {houseImages.length > 1 && (
+        <>
+          <button
+            className={`${styles.navButton} ${styles.prevButton}`}
+            onClick={prevSlide}
+            aria-label="Предыдущее фото"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            className={`${styles.navButton} ${styles.nextButton}`}
+            onClick={nextSlide}
+            aria-label="Следующее фото"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </>
+      )}
+
+      {/* Информация о текущем слайде */}
+      {currentImage.title && houseImages.length > 1 && (
+        <div className={styles.slideInfo}>
+          <span>
+            {currentImage.title} • {currentIndex + 1}/{houseImages.length}
+          </span>
         </div>
-      </div>
+      )}
     </div>
   );
 };

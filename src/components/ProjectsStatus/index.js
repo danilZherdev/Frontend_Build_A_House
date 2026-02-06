@@ -1,41 +1,17 @@
-// import styles from "./index.module.css";
-
-// const ProjectStatus = () => {
-//   return (
-//     <div className={styles.globalContainer}>
-//       <div className={styles.ContaynerText}>
-//         <h1>ЖК Спортивный парк </h1>
-//         <p>
-//           Квартиры в Краснодаре <br />
-//           с выездом к морю без пробок <br />
-//           <span>от 1.5 млн.рублей в рассрочку </span>
-//         </p>
-//         <img
-//           width={"30%"}
-//           height={"30%"}
-//           alt="планировка квартиры"
-//           src="/images/iconApartment.png"
-//         />
-//       </div>
-//       <a href=" ">
-//         Оставить заявку
-//         <br /> на подбор квартиры
-//       </a>
-//     </div>
-//   );
-// };
-// export default ProjectStatus;
-
 import { useState } from "react";
+import MailService from "../../services/mailService";
 import styles from "./index.module.css";
 
 const ProjectStatus = () => {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "", // изменил fullName на name для соответствия API
     phone: "",
-    question: "",
+    message: "", // изменил question на message
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,55 +19,140 @@ const ProjectStatus = () => {
       ...prev,
       [name]: value,
     }));
+    // Сбрасываем ошибки при изменении полей
+    if (error) setError(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Здесь обычно отправка данных на сервер
-    console.log("Данные формы:", formData);
-    alert("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
-    // Сброс формы и закрытие
-    setFormData({ fullName: "", phone: "", question: "" });
+
+    // Валидация
+    if (
+      !formData.name.trim() ||
+      !formData.phone.trim() ||
+      !formData.message.trim()
+    ) {
+      setError("Все поля обязательны для заполнения");
+      return;
+    }
+
+    // Валидация телефона (простой вариант)
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]+$/;
+    if (!phoneRegex.test(formData.phone)) {
+      setError("Введите корректный номер телефона");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Отправка данных через сервис
+      const response = await MailService.sendMail({
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        message: formData.message.trim(),
+      });
+
+      console.log("Ответ сервера:", response);
+
+      // Успешная отправка
+      setSuccess(true);
+
+      // Сброс формы через 3 секунды
+      setTimeout(() => {
+        setFormData({ name: "", phone: "", message: "" });
+        setShowForm(false);
+        setSuccess(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Ошибка отправки:", err);
+      setError(err.message || "Ошибка при отправке заявки. Попробуйте позже.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCancel = () => {
+    setFormData({ name: "", phone: "", message: "" });
     setShowForm(false);
+    setError(null);
+    setSuccess(false);
   };
 
   return (
-    <div className={styles.globalContainer}>
+    <div className={styles.globalContainer} id="ProjectStatus">
       <div className={styles.ContaynerText}>
-        <h1>
+        <h1>Новые локации</h1>
+        <h2>
+          <img
+            alt={"новые локации"}
+            src="\images\free-icon-location.png"
+            width={"40px"}
+            height={"40px"}
+            color="white"
+          />
           Калина парк,
-          <br />
+        </h2>
+        <h2>
+          {" "}
+          <img
+            alt={"новые локации"}
+            src="\images\free-icon-location.png"
+            width={"40px"}
+            height={"40px"}
+          />{" "}
           Вила парк,
-          <br />
+        </h2>
+        <h2>
+          {" "}
+          <img
+            alt={"новые локации"}
+            src="\images\free-icon-location.png"
+            width={"40px"}
+            height={"40px"}
+          />{" "}
           Поселок Новый
-        </h1>
+        </h2>
         <p>
-          Дома в Ессентуках <br />
+          Земельные участки <br />
+          в собстевенность
           <br />
-          <span>от 1.5 млн.рублей в рассрочку</span>
+          от 4 сот. до 20 сот.
+          <span>от 2 млн.рублей в рассрочку</span>
         </p>
-        <img
+        {/* <img
           width={"30%"}
           height={"30%"}
           alt="планировка квартиры"
           src="/images/iconApartment.png"
-        />
+        /> */}
       </div>
 
       {showForm ? (
         <form className={styles.contactForm} onSubmit={handleSubmit}>
           <h3>Оставить заявку</h3>
 
+          {success && (
+            <div className={styles.successMessage}>
+              ✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее
+              время.
+            </div>
+          )}
+
+          {error && <div className={styles.errorMessage}>❌ {error}</div>}
+
           <div className={styles.formGroup}>
-            <label htmlFor="fullName">ФИО:</label>
+            <label htmlFor="name">ФИО:</label>
             <input
               style={{ color: "black" }}
               type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
+              id="name"
+              name="name"
+              value={formData.name}
               onChange={handleInputChange}
               required
+              disabled={isLoading || success}
               placeholder="Иванов Иван Иванович"
             />
           </div>
@@ -105,34 +166,38 @@ const ProjectStatus = () => {
               value={formData.phone}
               onChange={handleInputChange}
               required
+              disabled={isLoading || success}
               placeholder="+7 (999) 123-45-67"
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="question">Ваш вопрос:</label>
+            <label htmlFor="message">Ваш вопрос:</label>
             <textarea
-              id="question"
-              name="question"
-              value={formData.question}
+              id="message"
+              name="message"
+              value={formData.message}
               onChange={handleInputChange}
               required
+              disabled={isLoading || success}
               placeholder="Задайте свой вопрос..."
               rows="3"
             />
           </div>
 
           <div className={styles.formButtons}>
-            <button type="submit" className={styles.submitBtn}>
-              Отправить заявку
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              disabled={isLoading || success}
+            >
+              {isLoading ? "Отправка..." : "Отправить заявку"}
             </button>
             <button
               type="button"
               className={styles.cancelBtn}
-              onClick={() => {
-                setFormData({ fullName: "", phone: "", question: "" });
-                setShowForm(false);
-              }}
+              onClick={handleCancel}
+              disabled={isLoading}
             >
               Отмена
             </button>
@@ -144,7 +209,7 @@ const ProjectStatus = () => {
           onClick={() => setShowForm(true)}
         >
           Оставить заявку
-          <br /> на подбор квартиры
+          <br /> на подбор дома
         </button>
       )}
     </div>
