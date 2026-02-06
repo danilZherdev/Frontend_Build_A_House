@@ -41,7 +41,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .ContaynerText h2 {
-  padding: 10px;
+  padding: 0px;
   font-size: 35px;
   color: white;
   /* width: fit-content;

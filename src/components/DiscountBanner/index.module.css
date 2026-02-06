@@ -74,7 +74,10 @@
   flex: 1;
   line-height: 1.2;
 }
-
+.houseDescription img {
+  max-width: 600px;
+  max-height: 400px;
+}
 .houseContent {
   font-optical-sizing: auto;
   font-weight: 400;
@@ -191,8 +194,9 @@
 /* БОЛЬШИЕ ЭКРАНЫ (1440px+) */
 @media (min-width: 1440px) {
   .globalContainer {
+    gap: 10px;
     padding: 50px 60px;
-    padding-top: 15%; /* Большой отступ сверху */
+    padding-top: 8%; /* Большой отступ сверху */
   }
 
   .contentWrapper {
@@ -225,7 +229,9 @@
     font-size: 48px;
     margin-bottom: 15px;
   }
-
+  .houseDescription img {
+    max-height: 350px;
+  }
   .houseDescription h1 {
     font-size: 55px;
   }
@@ -258,7 +264,9 @@
     font-size: 42px;
     margin-bottom: 15px;
   }
-
+  .houseDescription img {
+    max-height: 300px;
+  }
   .houseDescription {
     flex-direction: row;
     gap: 25px;
@@ -298,7 +306,9 @@
     height: 100vh;
     background-attachment: scroll;
   }
-
+  .houseDescription img {
+    max-height: 250px;
+  }
   .contentWrapper {
     padding-top: 15%;
     margin-top: 10%;
@@ -368,7 +378,9 @@
     margin-top: 12%;
     gap: 20px;
   }
-
+  .houseDescription img {
+    max-height: 200px;
+  }
   .houseTitle {
     font-size: 28px;
     margin-bottom: 5px;
@@ -436,7 +448,9 @@
     margin-top: 15%;
     gap: 15px;
   }
-
+  .houseDescription img {
+    max-height: 180px;
+  }
   .houseTitle {
     font-size: 24px;
   }

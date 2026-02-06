@@ -54,9 +54,9 @@ const DiscountBanner = () => {
         </div>
         {!isDisplayText && (
           <img
-            color="white"
-            width={"600px"}
-            height={"60px"}
+            // color="white"
+            // width={"600px"}
+            // height={"60px"}
             alt="изображение чертежа"
             src={imagesDrawing}
           />
