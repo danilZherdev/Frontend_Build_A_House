@@ -223,7 +223,12 @@
 
 .modalImages {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+.modalImages img {
+  max-width: 35%;
+
+  height: 250px;
 }
 
 .modalClose {

@@ -132,15 +132,11 @@ const ConstructionHero = () => {
             </div>
             <div className={styles.modalImages}>
               <img
-                alt="Дизайн гостевой комнаты "
-                width={"40%"}
-                height={"100%"}
+                alt=" "
                 src={modalOnClickContent[activeModal].leftImage}
               />
               <img
-                alt="Дизайн спальной комнаты "
-                width={"40%"}
-                height={"100%"}
+                alt=" "
                 src={modalOnClickContent[activeModal].rightImage}
               />
             </div>
