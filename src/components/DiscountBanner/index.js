@@ -39,15 +39,9 @@ const DiscountBanner = () => {
     <div className={styles.globalContainer} style={{ backgroundImage }}>
       <div className={styles.houseDescription}>
         <div>
-          {isDisplayText && (
-            <h1>
-               Дома в продаже!
-            </h1>
-          )}
+          {isDisplayText && <h1>Дома в продаже!</h1>}
           <h2 className={styles.houseTitle}>
-            <span marginRight={"10px"} className={styles.houseContent}>
-              {textPrefix}
-            </span>{" "}
+            <span className={styles.houseContent}>{textPrefix}</span>{" "}
             {ImageTextTitle}
           </h2>
           <span className={styles.houseContent}>{imageTextContent}</span>

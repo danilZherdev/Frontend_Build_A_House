@@ -9,11 +9,10 @@ const FooterMap = () => {
           <iframe
             title="Адрес: улица Буачидзе, д1, Ессентуки"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d485.45912286082756!2d42.84963311739602!3d44.0471169751858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4057848e61aeef2b%3A0x2836681e4c3d378e!2z0JHRg9Cw0YfQuNC00LfQtSDRg9C7LiwgMSwg0JXRgdGB0LXQvdGC0YPQutC4LCDQodGC0LDQstGA0L7Qv9C-0LvRjNGB0LrQuNC5INC60YDQsNC5LCAzNTc2MDE!5e0!3m2!1sru!2sru!4v1769168151127!5m2!1sru!2sru"
-            allowfullscreen
             width={"100%"}
             height={300}
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>
