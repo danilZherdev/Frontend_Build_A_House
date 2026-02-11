@@ -102,7 +102,7 @@ const ProjectStatus = () => {
             width={"40px"}
             height={"40px"}
           />{" "}
-          Вила парк,
+          Вилла парк,
         </h2>
         <h2>
           {" "}

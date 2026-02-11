@@ -226,9 +226,8 @@
   justify-content: space-around;
 }
 .modalImages img {
-  max-width: 35%;
-
-  height: 250px;
+  max-width: 30%;
+  max-height: 250px;
 }
 
 .modalClose {
@@ -263,7 +262,6 @@
 
 .modalContent h2 {
   color: white;
-  margin-bottom: 30px;
   text-align: left;
   font-weight: 400;
   font-size: 65px;
@@ -326,7 +324,7 @@
   }
   .paragrafOne {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1;
   }
 
   .paragrafSecond {
