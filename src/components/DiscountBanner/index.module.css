@@ -439,7 +439,7 @@
 /* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 400px) */
 @media (max-width: 400px) {
   .globalContainer {
-    padding: 20px 20px;
+    padding: 20px 60px;
     padding-top: 25%; /* Еще больше отступ */
   }
 

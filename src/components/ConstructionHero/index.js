@@ -46,8 +46,8 @@ const ConstructionHero = () => {
                       — Ввод в эксплуатацию\n
                       — Комплектация\n
                       — Обслуживание объектов`,
-      leftImage: "/images/imagesDrawing/construction image one.jpg",
-      rightImage: "/images/imagesDrawing/construction image Second.jpg",
+      leftImage: "/images/imagesDrawing/construction-image-one.jpg",
+      rightImage: "/images/imagesDrawing/construction-image-second.jpg",
     },
     //ремонт
     repair: {
