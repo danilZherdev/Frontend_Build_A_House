@@ -302,7 +302,7 @@
 @media (max-width: 767px) and (min-width: 577px) {
   .globalContainer {
     padding: 25px 30px;
-    padding-top: 25%; /* Очень большой отступ сверху */
+    padding-top: 30%; /* Очень большой отступ сверху */
     height: 100vh;
     background-attachment: scroll;
   }
@@ -367,7 +367,7 @@
 @media (max-width: 576px) {
   .globalContainer {
     padding: 20px 25px;
-    padding-top: 20%; /* Максимальный отступ сверху */
+    padding-top: 30%; /* Максимальный отступ сверху */
     height: 100vh;
     min-height: 100vh;
     background-attachment: scroll;

@@ -86,6 +86,7 @@ const ProjectStatus = () => {
         <h1>Новые локации</h1>
         <h2>
           <img
+          
             alt={"новые локации"}
             src="\images\free-icon-location.png"
             width={"40px"}
