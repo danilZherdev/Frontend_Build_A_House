@@ -366,7 +366,7 @@
 /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 576px) */
 @media (max-width: 576px) {
   .globalContainer {
-    padding: 60px 25px;
+    padding: 80px 25px;
     padding-top: 30%; /* Максимальный отступ сверху */
     height: 100vh;
     min-height: 100vh;
@@ -439,7 +439,7 @@
 /* ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 400px) */
 @media (max-width: 400px) {
   .globalContainer {
-    padding: 20px 60px;
+    padding: 20px 80px;
     padding-top: 25%; /* Еще больше отступ */
   }
 
