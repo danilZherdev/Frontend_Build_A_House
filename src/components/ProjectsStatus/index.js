@@ -85,34 +85,37 @@ const ProjectStatus = () => {
       <div className={styles.ContaynerText}>
         <h1>Новые локации</h1>
         <h2>
-          <img
-          
-            alt={"новые локации"}
-            src="\images\free-icon-location.png"
-            width={"40px"}
-            height={"40px"}
-            color="white"
-          />
+          <a href="https://www.google.com/maps/place/%D1%83%D0%BB.+%D0%9F%D1%8F%D1%82%D0%B8%D0%B3%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F,+187,+%D0%95%D1%81%D1%81%D0%B5%D0%BD%D1%82%D1%83%D0%BA%D0%B8,+%D0%A1%D1%82%D0%B0%D0%B2%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9+%D0%BA%D1%80%D0%B0%D0%B9,+357361/@44.0552562,42.9418932,350m/data=!3m1!1e3!4m15!1m8!3m7!1s0x40579cc75f307717:0x590e3eb706fe11b!2z0YPQuy4g0J_Rj9GC0LjQs9C-0YDRgdC60LDRjywgMTg3LCDQldGB0YHQtdC90YLRg9C60LgsINCh0YLQsNCy0YDQvtC_0L7Qu9GM0YHQutC40Lkg0LrRgNCw0LksIDM1NzM2MQ!3b1!8m2!3d44.0555122!4d42.9415218!16s%2Fg%2F11fssyzz9z!3m5!1s0x40579cc75f307717:0x590e3eb706fe11b!8m2!3d44.0555122!4d42.9415218!16s%2Fg%2F11fssyzz9z?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D">
+            <img
+              alt={"новые локации"}
+              src="\images\free-icon-location.png"
+              width={"40px"}
+              height={"40px"}
+              color="white"
+            />
+          </a>
           Калина парк,
         </h2>
         <h2>
-          {" "}
-          <img
-            alt={"новые локации"}
-            src="\images\free-icon-location.png"
-            width={"40px"}
-            height={"40px"}
-          />{" "}
+          <a href="https://www.google.com/maps/@44.0555006,42.8386739,134m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D">
+            <img
+              alt={"новые локации"}
+              src="\images\free-icon-location.png"
+              width={"40px"}
+              height={"40px"}
+            />{" "}
+          </a>
           Вилла парк,
         </h2>
         <h2>
-          {" "}
-          <img
-            alt={"новые локации"}
-            src="\images\free-icon-location.png"
-            width={"40px"}
-            height={"40px"}
-          />{" "}
+          <a href="https://www.google.com/maps/place/%D0%A1%D1%83%D0%B2%D0%BE%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5+%D1%88.,+1,+%D0%95%D1%81%D1%81%D0%B5%D0%BD%D1%82%D1%83%D0%BA%D0%B8,+%D0%A1%D1%82%D0%B0%D0%B2%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9+%D0%BA%D1%80%D0%B0%D0%B9,+357601/@44.0572742,42.8301281,485m/data=!3m1!1e3!4m6!3m5!1s0x405784facb6b005b:0xd2ab642915884e!8m2!3d44.0570342!4d42.8323819!16s%2Fg%2F11j8sfpttv?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D">
+            <img
+              alt={"новые локации"}
+              src="\images\free-icon-location.png"
+              width={"40px"}
+              height={"40px"}
+            />{" "}
+          </a>
           Поселок Новый
         </h2>
         <p>
